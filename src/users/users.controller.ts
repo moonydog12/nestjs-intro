@@ -12,9 +12,15 @@ import {
 import { CreateUserDto } from './dtos/create-user.dto';
 import { GetUsersParamDto } from './dtos/get-users-param.dto';
 import { PatchUserDto } from './dtos/patch-user.dto';
+import { UsersService } from './providers/users.service';
 
 @Controller('users')
 export class UsersController {
+  constructor(
+    // Injecting Users service
+    private readonly userService: UsersService,
+  ) {}
+
   /**
    * Final Endpoint - /users/id?limit=10&page=1
    * @param id - optional, convert to integer, cannot have a default value
@@ -28,6 +34,7 @@ export class UsersController {
     @Query('page', new DefaultValuePipe(1), ParseIntPipe) page: number,
   ) {
     console.log(getUsersParamDto);
+    this.userService.sayHi();
     return 'You sent a get request to users endpoint';
   }
 
