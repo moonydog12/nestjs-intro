@@ -1,0 +1,23 @@
+POST http://localhost:3000/posts
+Content-Type: application/json
+
+{
+  "title": "What is new with TypeScript",
+  "postType": "post",
+  "slug": "new-with-nestjs",
+  "status": "draft",
+  "content": "test content",
+  "schema": "{\"foo\":[1,4,7,10],\"bar\":\"baz\"}",
+  "featuredImageUrl": "http://localhost.com/images/image1.jpg",
+  "publishOn": "2024-03-16T07:46:32+0000",
+  "tags": [
+    "nestjs",
+    "typescript"
+  ],
+  "metaOptions": [
+    {
+      "key": "testKey",
+      "value": 30
+    }
+  ]
+}
